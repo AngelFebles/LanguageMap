@@ -1,31 +1,13 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Passport Travel Map</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-  <style>
-    #map {
-      height: 80vh;
-      width: 100%;
-    }
-  </style>
-</head>
-<body>
-  <h1>Passport Travel Map</h1>
-  <label for="passport">Select Passport:</label>
-  <select id="passport">
-    <option value="US">United States</option>
-    <option value="UK">United Kingdom</option>
-    <option value="DE">Germany</option>
-    <!-- Add more passport options as needed -->
-  </select>
-  <div id="map"></div>
+  <head>
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script src="script.js"></script>
-  <script>
-    initMap();
-  </script>
-</body>
+  <body>
+    <div id="map"></div>
+    <script src="script.js"></script>
+  </body>
 </html>
