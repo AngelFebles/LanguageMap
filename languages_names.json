@@ -1,0 +1,137 @@
+{
+    "countries": [
+      {
+        "language": "Spanish",
+        "countries": [
+          "Argentina",
+          "Bolivia",
+          "Chile",
+          "Colombia",
+          "Costa Rica",
+          "Cuba",
+          "Dominican Republic",
+          "Ecuador",
+          "El Salvador",
+          "Equatorial Guinea",
+          "Guatemala",
+          "Honduras",
+          "Mexico",
+          "Nicaragua",
+          "Panama",
+          "Paraguay",
+          "Peru",
+          "Spain",
+          "Uruguay",
+          "Venezuela"
+        ]
+      },
+      {
+        "language": "English",
+        "countries": [
+          "Antigua and Barbuda",
+          "Australia",
+          "Bahamas",
+          "Barbados",
+          "Belize",
+          "Canada",
+          "Dominica",
+          "Grenada",
+          "Guyana",
+          "India",
+          "Ireland",
+          "Jamaica",
+          "New Zealand",
+          "Saint Kitts and Nevis",
+          "Saint Lucia",
+          "Saint Vincent and the Grenadines",
+          "Singapore",
+          "South Africa",
+          "Trinidad and Tobago",
+          "United Kingdom",
+          "United States"
+        ]
+      },
+      {
+        "language": "French",
+        "countries": [
+          "Belgium",
+          "Benin",
+          "Burkina Faso",
+          "Burundi",
+          "Cameroon",
+          "Canada",
+          "Central African Republic",
+          "Chad",
+          "Comoros",
+          "Congo",
+          "Democratic Republic of the Congo",
+          "Djibouti",
+          "Equatorial Guinea",
+          "France",
+          "Gabon",
+          "Guinea",
+          "Haiti",
+          "Ivory Coast",
+          "Luxembourg",
+          "Madagascar",
+          "Mali",
+          "Monaco",
+          "Niger",
+          "Rwanda",
+          "Senegal",
+          "Seychelles",
+          "Switzerland",
+          "Togo",
+          "Vanuatu"
+        ]
+      },
+      {
+        "language": "Russian",
+        "countries": [
+          "Belarus",
+          "Kazakhstan",
+          "Kyrgyzstan",
+          "Russia",
+          "Tajikistan",
+          "Uzbekistan"
+        ]
+      },
+      {
+        "language": "Arabic",
+        "countries": [
+          "Algeria",
+          "Bahrain",
+          "Comoros",
+          "Djibouti",
+          "Egypt",
+          "Iraq",
+          "Jordan",
+          "Kuwait",
+          "Lebanon",
+          "Libya",
+          "Mauritania",
+          "Morocco",
+          "Oman",
+          "Qatar",
+          "Saudi Arabia",
+          "Somalia",
+          "Sudan",
+          "Syria",
+          "Tunisia",
+          "United Arab Emirates",
+          "Yemen"
+        ]
+      },
+      {
+        "language": "Chinese",
+        "countries": [
+          "China",
+          "Hong Kong",
+          "Macau",
+          "Singapore",
+          "Taiwan"
+        ]
+      }
+    ]
+  }
+  

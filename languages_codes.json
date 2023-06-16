@@ -1,0 +1,137 @@
+{
+    "countries": [
+      {
+        "language": "es",
+        "countries": [
+          "AR",
+          "BO",
+          "CL",
+          "CO",
+          "CR",
+          "CU",
+          "DO",
+          "EC",
+          "SV",
+          "GQ",
+          "GT",
+          "HN",
+          "MX",
+          "NI",
+          "PA",
+          "PY",
+          "PE",
+          "ES",
+          "UY",
+          "VE"
+        ]
+      },
+      {
+        "language": "en",
+        "countries": [
+          "AG",
+          "AU",
+          "BS",
+          "BB",
+          "BZ",
+          "CA",
+          "DM",
+          "GD",
+          "GY",
+          "IN",
+          "IE",
+          "JM",
+          "NZ",
+          "KN",
+          "LC",
+          "VC",
+          "SG",
+          "ZA",
+          "TT",
+          "GB",
+          "US"
+        ]
+      },
+      {
+        "language": "fr",
+        "countries": [
+          "BE",
+          "BJ",
+          "BF",
+          "BI",
+          "CM",
+          "CA",
+          "CF",
+          "TD",
+          "KM",
+          "CG",
+          "CD",
+          "DJ",
+          "GQ",
+          "FR",
+          "GA",
+          "GN",
+          "HT",
+          "CI",
+          "LU",
+          "MG",
+          "ML",
+          "MC",
+          "NE",
+          "RW",
+          "SN",
+          "SC",
+          "CH",
+          "TG",
+          "VU"
+        ]
+      },
+      {
+        "language": "ru",
+        "countries": [
+          "BY",
+          "KZ",
+          "KG",
+          "RU",
+          "TJ",
+          "UZ"
+        ]
+      },
+      {
+        "language": "ar",
+        "countries": [
+          "DZ",
+          "BH",
+          "KM",
+          "DJ",
+          "EG",
+          "IQ",
+          "JO",
+          "KW",
+          "LB",
+          "LY",
+          "MR",
+          "MA",
+          "OM",
+          "QA",
+          "SA",
+          "SO",
+          "SD",
+          "SY",
+          "TN",
+          "AE",
+          "YE"
+        ]
+      },
+      {
+        "language": "zh",
+        "countries": [
+          "CN",
+          "HK",
+          "MO",
+          "SG",
+          "TW"
+        ]
+      }
+    ]
+  }
+  
