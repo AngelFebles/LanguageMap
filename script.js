@@ -32,15 +32,10 @@ am4core.ready(function () {
   var hs = polygonTemplate.states.create("hover");
   hs.properties.fill = chart.colors.getIndex(2);
 
-  // Create active state
-  var activeState = polygonTemplate.states.create("active");
-  activeState.properties.fill = chart.colors.getIndex(4);
+ // Set default zoom level
+ chart.homeZoomLevel = 0; // Adjust the value as per your preference
 
-  // Create an event to toggle "active" state
-  polygonTemplate.events.on("hit", function (ev) {
-    ev.target.isActive = !ev.target.isActive;
-  })
-
+ 
 
   var graticuleSeries = chart.series.push(new am4maps.GraticuleSeries());
 
