@@ -6,7 +6,7 @@ html, body {
   display: flex;
 }
 
-#map {
+#chartdiv  {
   position: absolute;
   top: 0;
   bottom: 0;
