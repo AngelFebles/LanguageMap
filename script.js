@@ -107,8 +107,8 @@ am4core.ready(function () {
 
   var graticuleSeries = chart.series.push(new am4maps.GraticuleSeries());
 
-  // Load language data from JSON file
-  fetch("languages_codes.json")
+  // Load language data from JSON file with cache-busting parameter
+  fetch("languages_codes.json?_=" + Date.now())
     .then(function (response) {
       return response.json();
     })
@@ -118,4 +118,5 @@ am4core.ready(function () {
     .catch(function (error) {
       console.log("Error loading language data:", error);
     });
+
 });
