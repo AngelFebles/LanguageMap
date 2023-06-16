@@ -27,9 +27,12 @@ am4core.ready(function () {
   polygonTemplate.tooltipText = "{name}";
   polygonTemplate.fill = am4core.color("#9e9e9e");
 
-  // Create hover state and set alternative fill color
+
+  // Create hover state and set alternative stroke color
   var hs = polygonTemplate.states.create("hover");
-  hs.properties.fill = am4core.color("#bada55");
+  hs.properties.stroke = am4core.color("#FFFFFF");
+  hs.properties.strokeWidth = 5;
+
 
   // Set default zoom level
   chart.homeZoomLevel = 0; // Adjust the value as per your preference
@@ -46,7 +49,7 @@ am4core.ready(function () {
     ru: "#FF0000", // Russian: Red
     zh: "#FFFF00", // Chinese: Yellow
   };
-  
+
 
   function updateMapColors() {
     // Reset colors
