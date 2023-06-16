@@ -1,33 +1,25 @@
 <html>
-
 <head>
   <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
   <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
   <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
   <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-
   <link rel="stylesheet" href="style.css">
-
   <title>UN Languages Map</title>
 </head>
-
 <body>
-
   <div class="header">
     <div>
-      <button type="button" id="es">Spanish</button>
-      <button type="button" id="en">English</button>
-      <button type="button" id="fr">French</button>
-      <button type="button" id="ru">Russian</button>
-      <button type="button" id="zh">Chinese (Mandarin)</button>
-      <button type="button" id="ar">Arabic (MSA)</button>
-      
+      <button type="button" class="lang-button" data-lang="es">Spanish</button>
+      <button type="button" class="lang-button" data-lang="en">English</button>
+      <button type="button" class="lang-button" data-lang="fr">French</button>
+      <button type="button" class="lang-button" data-lang="ru">Russian</button>
+      <button type="button" class="lang-button" data-lang="zh">Chinese (Mandarin)</button>
+      <button type="button" class="lang-button" data-lang="ar">Arabic (MSA)</button>
     </div>
     <div>Angel Febles</div>
   </div>
-
   <div class="chartdiv"></div>
   <script src="script.js"></script>
 </body>
-
 </html>

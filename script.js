@@ -1,4 +1,4 @@
-am4core.ready(function() {
+am4core.ready(function () {
   // Themes begin
   am4core.useTheme(am4themes_animated);
   // Themes end
@@ -25,88 +25,82 @@ am4core.ready(function() {
   // Configure series
   var polygonTemplate = polygonSeries.mapPolygons.template;
   polygonTemplate.tooltipText = "{name}";
-  polygonTemplate.fill = chart.colors.getIndex(0);
+  polygonTemplate.fill = am4core.color("#9e9e9e");
 
   // Create hover state and set alternative fill color
   var hs = polygonTemplate.states.create("hover");
-  hs.properties.fill = chart.colors.getIndex(2);
+  hs.properties.fill = am4core.color("#bada55");
 
-  // Set up the country-specific language color
-  var languageColor = chart.colors.getIndex(3);
+  // Set default zoom level
+  chart.homeZoomLevel = 0; // Adjust the value as per your preference
 
-  // Add an additional state to preserve language color when not hovered
-  var fixedState = polygonTemplate.states.create("fixed");
-  fixedState.properties.fill = languageColor;
+  // Language button click handler
+  var langButtons = document.getElementsByClassName("lang-button");
+  var activeLanguages = [];
 
-  // Language data
-  var languageData;
+  var languageColors = {
+    es: "#FF69B4", // Spanish: Pink
+    en: "#0000FF", // English: Blue
+    fr: "#800080", // French: Purple
+    ar: "#008000", // Arabic: Green
+    ru: "#FF0000", // Russian: Red
+    zh: "#FFFF00", // Chinese: Yellow
+  };
+  
 
-  // Fetch language data from JSON file
-  function fetchLanguageData() {
-    fetch("languages_codes.json")
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        languageData = data;
-      })
-      .catch(function(error) {
-        console.log("Error fetching language data:", error);
-      });
-  }
-
-  // Change country colors based on selected language
-  function changeLanguageColor(language) {
-    // Reset colors for all countries
-    polygonSeries.mapPolygons.each(function(polygon) {
-      polygon.fill = chart.colors.getIndex(0);
+  function updateMapColors() {
+    // Reset colors
+    polygonSeries.mapPolygons.each(function (polygon) {
+      polygon.fill = am4core.color("#9e9e9e");
     });
 
-    // Find the corresponding countries for the selected language
-    var countries = languageData.countries.find(function(item) {
-      return item.language === language;
-    });
-
-    if (countries) {
-      // Change the color of the countries for the selected language
-      polygonSeries.mapPolygons.each(function(polygon) {
-        if (countries.countries.includes(polygon.dataItem.dataContext.id)) {
-          polygon.fill = languageColor;
-        }
+    // Apply active languages' colors
+    activeLanguages.forEach(function (lang, index) {
+      var countries = languageData.countries.find(function (data) {
+        return data.language === lang;
       });
-    }
+
+      if (countries) {
+        var color = languageColors[lang];
+
+        countries.countries.forEach(function (countryCode) {
+          var polygon = polygonSeries.getPolygonById(countryCode);
+          if (polygon) {
+            polygon.fill = am4core.color(color);
+          }
+        });
+      }
+    });
   }
 
-  // Initialize the map and language data
-  function initialize() {
-    fetchLanguageData();
-  }
+  Array.prototype.forEach.call(langButtons, function (button) {
+    button.addEventListener("click", function () {
+      var lang = this.getAttribute("data-lang");
+      var langIndex = activeLanguages.indexOf(lang);
 
-  // Event listeners for language buttons
-  document.getElementById("es").addEventListener("click", function() {
-    changeLanguageColor("es");
+      if (langIndex === -1) {
+        // Language not active, add to active languages
+        activeLanguages.push(lang);
+      } else {
+        // Language active, remove from active languages
+        activeLanguages.splice(langIndex, 1);
+      }
+
+      updateMapColors();
+    });
   });
 
-  document.getElementById("en").addEventListener("click", function() {
-    changeLanguageColor("en");
-  });
+  var graticuleSeries = chart.series.push(new am4maps.GraticuleSeries());
 
-  document.getElementById("fr").addEventListener("click", function() {
-    changeLanguageColor("fr");
-  });
-
-  document.getElementById("ru").addEventListener("click", function() {
-    changeLanguageColor("ru");
-  });
-
-  document.getElementById("zh").addEventListener("click", function() {
-    changeLanguageColor("zh");
-  });
-
-  document.getElementById("ar").addEventListener("click", function() {
-    changeLanguageColor("ar");
-  });
-
-  // Call the initialize function to start the map and fetch language data
-  initialize();
+  // Load language data from JSON file
+  fetch("languages_codes.json")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      languageData = data;
+    })
+    .catch(function (error) {
+      console.log("Error loading language data:", error);
+    });
 });
