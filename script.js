@@ -27,12 +27,10 @@ am4core.ready(function () {
   polygonTemplate.tooltipText = "{name}";
   polygonTemplate.fill = am4core.color("#9e9e9e");
 
-
   // Create hover state and set alternative stroke color
   var hs = polygonTemplate.states.create("hover");
   hs.properties.stroke = am4core.color("#FFFFFF");
   hs.properties.strokeWidth = 5;
-
 
   // Set default zoom level
   chart.homeZoomLevel = 0; // Adjust the value as per your preference
@@ -41,15 +39,36 @@ am4core.ready(function () {
   var langButtons = document.getElementsByClassName("lang-button");
   var activeLanguages = [];
 
+  // Clear button click handler
+  var clearButton = document.getElementById("clearButton");
+  clearButton.addEventListener("click", function () {
+    // Clear active languages array
+    activeLanguages = [];
+
+    // Reset map colors
+    updateMapColors();
+  });
+
+
   var languageColors = {
-    es: "#FF69B4", // Spanish: Pink
-    en: "#0000FF", // English: Blue
-    fr: "#800080", // French: Purple
-    ar: "#008000", // Arabic: Green
-    ru: "#FF0000", // Russian: Red
-    zh: "#FFFF00", // Chinese: Yellow
+    es: ["#FF69B4"], // Spanish: Pink
+    en: ["#0000FF"], // English: Blue
+    fr: ["#800080"], // French: Purple
+    ar: ["#008000"], // Arabic: Green
+    ru: ["#FF0000"], // Russian: Red
+    zh: ["#FFFF00"], // Chinese: Yellow
   };
 
+  function interpolateColors(color1, color2, ratio) {
+    var rgb1 = am4core.color(color1).rgb;
+    var rgb2 = am4core.color(color2).rgb;
+
+    var r = Math.round(rgb1.r + (rgb2.r - rgb1.r) * ratio);
+    var g = Math.round(rgb1.g + (rgb2.g - rgb1.g) * ratio);
+    var b = Math.round(rgb1.b + (rgb2.b - rgb1.b) * ratio);
+
+    return am4core.color({ r: r, g: g, b: b });
+  }
 
   function updateMapColors() {
     // Reset colors
@@ -58,18 +77,22 @@ am4core.ready(function () {
     });
 
     // Apply active languages' colors
-    activeLanguages.forEach(function (lang, index) {
+    activeLanguages.forEach(function (lang) {
       var countries = languageData.countries.find(function (data) {
         return data.language === lang;
       });
 
       if (countries) {
-        var color = languageColors[lang];
+        var colors = languageColors[lang];
 
         countries.countries.forEach(function (countryCode) {
           var polygon = polygonSeries.getPolygonById(countryCode);
           if (polygon) {
-            polygon.fill = am4core.color(color);
+            colors.forEach(function (color) {
+              // Apply each color to the country
+              var fill = interpolateColors(polygon.fill, color, 0.5);
+              polygon.fill = fill;
+            });
           }
         });
       }
@@ -95,8 +118,8 @@ am4core.ready(function () {
 
   var graticuleSeries = chart.series.push(new am4maps.GraticuleSeries());
 
-  // Load language data from JSON file
-  fetch("languages_codes.json")
+  // Load language data from JSON file with cache-busting parameter
+  fetch("languages_codes.json?_=" + Date.now())
     .then(function (response) {
       return response.json();
     })
@@ -106,4 +129,5 @@ am4core.ready(function () {
     .catch(function (error) {
       console.log("Error loading language data:", error);
     });
+
 });
