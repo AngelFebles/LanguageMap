@@ -39,6 +39,17 @@ am4core.ready(function () {
   var langButtons = document.getElementsByClassName("lang-button");
   var activeLanguages = [];
 
+  // Clear button click handler
+  var clearButton = document.getElementById("clearButton");
+  clearButton.addEventListener("click", function () {
+    // Clear active languages array
+    activeLanguages = [];
+
+    // Reset map colors
+    updateMapColors();
+  });
+
+
   var languageColors = {
     es: ["#FF69B4"], // Spanish: Pink
     en: ["#0000FF"], // English: Blue
