@@ -22,7 +22,8 @@
           "PE",
           "ES",
           "UY",
-          "VE"
+          "VE",
+          "PR"
         ]
       },
       {
@@ -48,12 +49,16 @@
           "ZA",
           "TT",
           "GB",
-          "US"
+          "US",
+          "PR"
         ]
       },
       {
         "language": "fr",
         "countries": [
+          "TN",
+          "MA",
+          "DZ",
           "BE",
           "BJ",
           "BF",

@@ -22,7 +22,8 @@
           "Peru",
           "Spain",
           "Uruguay",
-          "Venezuela"
+          "Venezuela",
+          "Puerto Rico"
         ]
       },
       {
@@ -48,12 +49,16 @@
           "South Africa",
           "Trinidad and Tobago",
           "United Kingdom",
-          "United States"
+          "United States",
+          "Puerto Rico"
         ]
       },
       {
         "language": "French",
         "countries": [
+          "Tunisia",
+          "Morocco",
+          "Algeria",
           "Belgium",
           "Benin",
           "Burkina Faso",
