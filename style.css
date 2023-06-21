@@ -15,6 +15,7 @@ html, body {
   background-color: #1f2937;
   color: white;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -24,3 +25,20 @@ html, body {
   display: flex;
   height: 100%;
 }
+
+button{
+  border: none;
+  background: none;
+  padding: 0%;
+}
+
+button img{
+  width: 50px;
+  margin: 0%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff6f6;
+}
+
