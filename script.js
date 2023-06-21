@@ -39,35 +39,19 @@ am4core.ready(function () {
   var langButtons = document.getElementsByClassName("lang-button");
   var activeLanguages = [];
 
-  // Clear button click handler
-  var clearButton = document.getElementById("clearButton");
-  clearButton.addEventListener("click", function () {
-    // Clear active languages array
-    activeLanguages = [];
+  function updateButtonOpacity() {
+    Array.prototype.forEach.call(langButtons, function (button) {
+      var lang = button.getAttribute("data-lang");
+      var langIndex = activeLanguages.indexOf(lang);
 
-    // Reset map colors
-    updateMapColors();
-  });
-
-
-  var languageColors = {
-    es: ["#FF69B4"], // Spanish: Pink
-    en: ["#0000FF"], // English: Blue
-    fr: ["#800080"], // French: Purple
-    ar: ["#008000"], // Arabic: Green
-    ru: ["#FF0000"], // Russian: Red
-    zh: ["#FFFF00"], // Chinese: Yellow
-  };
-
-  function interpolateColors(color1, color2, ratio) {
-    var rgb1 = am4core.color(color1).rgb;
-    var rgb2 = am4core.color(color2).rgb;
-
-    var r = Math.round(rgb1.r + (rgb2.r - rgb1.r) * ratio);
-    var g = Math.round(rgb1.g + (rgb2.g - rgb1.g) * ratio);
-    var b = Math.round(rgb1.b + (rgb2.b - rgb1.b) * ratio);
-
-    return am4core.color({ r: r, g: g, b: b });
+      if (langIndex === -1) {
+        // Language not active, set opacity to 50%
+        button.style.opacity = "0.5";
+      } else {
+        // Language active, set opacity to 100%
+        button.style.opacity = "1";
+      }
+    });
   }
 
   function updateMapColors() {
@@ -113,8 +97,40 @@ am4core.ready(function () {
       }
 
       updateMapColors();
+      updateButtonOpacity();
     });
   });
+
+  // Clear button click handler
+  var clearButton = document.getElementById("clearButton");
+  clearButton.addEventListener("click", function () {
+    // Clear active languages array
+    activeLanguages = [];
+
+    // Reset map colors
+    updateMapColors();
+    updateButtonOpacity();
+  });
+
+  var languageColors = {
+    es: ["#FF69B4"], // Spanish: Pink
+    en: ["#0000FF"], // English: Blue
+    fr: ["#800080"], // French: Purple
+    ar: ["#008000"], // Arabic: Green
+    ru: ["#FF0000"], // Russian: Red
+    zh: ["#FFFF00"], // Chinese: Yellow
+  };
+
+  function interpolateColors(color1, color2, ratio) {
+    var rgb1 = am4core.color(color1).rgb;
+    var rgb2 = am4core.color(color2).rgb;
+
+    var r = Math.round(rgb1.r + (rgb2.r - rgb1.r) * ratio);
+    var g = Math.round(rgb1.g + (rgb2.g - rgb1.g) * ratio);
+    var b = Math.round(rgb1.b + (rgb2.b - rgb1.b) * ratio);
+
+    return am4core.color({ r: r, g: g, b: b });
+  }
 
   var graticuleSeries = chart.series.push(new am4maps.GraticuleSeries());
 
@@ -125,9 +141,9 @@ am4core.ready(function () {
     })
     .then(function (data) {
       languageData = data;
+      updateButtonOpacity(); // Set initial button opacity
     })
     .catch(function (error) {
       console.log("Error loading language data:", error);
     });
-
 });
