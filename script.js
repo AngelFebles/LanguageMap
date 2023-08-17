@@ -54,6 +54,24 @@ am4core.ready(function () {
     });
   }
 
+  var toggleSwitch = document.getElementById("toggleSwitch");
+  toggleSwitch.addEventListener("change", function () {
+    if (chart) {
+      if (toggleSwitch.checked) {
+        // Switch to 3D globe
+        chart.projection = new am4maps.projections.Orthographic();
+        chart.panBehavior = "rotateLongLat";
+      } else {
+        // Switch to 2D map
+        chart.projection = new am4maps.projections.NaturalEarth1();
+        chart.panBehavior = "move";
+      }
+    }
+  });
+
+
+
+
   function updateMapColors() {
     // Reset colors
     polygonSeries.mapPolygons.each(function (polygon) {
@@ -145,5 +163,5 @@ am4core.ready(function () {
     })
     .catch(function (error) {
       console.log("Error loading language data:", error);
-    });
+    });    
 });
