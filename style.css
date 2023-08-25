@@ -41,7 +41,7 @@ button{
   padding: 0%;
 }
 
-button img{
+img{
   width: 50px;
   margin: 0%;
 }
@@ -58,6 +58,12 @@ a {
   height: 34px;
   align-self: center;
   margin-left: 5px;
+  
+}
+
+.toggle_icon{
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .toggle-label {
