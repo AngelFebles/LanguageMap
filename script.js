@@ -1,7 +1,6 @@
 am4core.ready(function () {
-  // Themes begin
+  // Themes
   am4core.useTheme(am4themes_animated);
-  // Themes end
 
   // Create map instance
   var chart = am4core.create("chartdiv", am4maps.MapChart);
@@ -10,7 +9,8 @@ am4core.ready(function () {
   chart.geodata = am4geodata_worldLow;
 
   // Set projection
-  chart.projection = new am4maps.projections.NaturalEarth1();
+  chart.projection = new am4maps.projections.Orthographic();
+  chart.panBehavior = "rotateLongLat";
 
   // Create map polygon series
   var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
@@ -32,8 +32,9 @@ am4core.ready(function () {
   hs.properties.stroke = am4core.color("#FFFFFF");
   hs.properties.strokeWidth = 5;
 
-  // Set default zoom level
-  chart.homeZoomLevel = 0; // Adjust the value as per your preference
+  //Default zoom level
+  chart.homeZoomLever = 0;
+
 
   // Language button click handler
   var langButtons = document.getElementsByClassName("lang-button");
@@ -58,13 +59,15 @@ am4core.ready(function () {
   toggleSwitch.addEventListener("change", function () {
     if (chart) {
       if (toggleSwitch.checked) {
-        // Switch to 3D globe
-        chart.projection = new am4maps.projections.Orthographic();
-        chart.panBehavior = "rotateLongLat";
-      } else {
         // Switch to 2D map
         chart.projection = new am4maps.projections.NaturalEarth1();
         chart.panBehavior = "move";
+        
+      } else {
+        // Switch to 3D globe
+        chart.projection = new am4maps.projections.Orthographic();
+        chart.panBehavior = "rotateLongLat";
+
       }
     }
   });
