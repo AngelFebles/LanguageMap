@@ -1,5 +1,8 @@
 <html>
+
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Angel Febles">
   <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
   <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
   <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
@@ -9,6 +12,7 @@
 
   <title>UN Language Map</title>
 </head>
+
 <body>
   <div class="header">
     <div class="button-arr">
@@ -20,19 +24,21 @@
         <button type="button" class="lang-button" data-lang="zh"><img src="icons/zh.png"></button>
         <button type="button" class="lang-button" data-lang="ar"><img src="icons/ar.png"></button>
       </div>
-      <button type="button" id="clearButton"><img src="icons/reset.png"></button>
-      <img src="icons/2d.png" class="toggle_icon">
-      <div class="toggle-container">
-        <input type="checkbox" id="toggleSwitch">
-        <label for="toggleSwitch" class="toggle-label"></label>
+      <div class="utilities-arr">
+        <button type="button" id="clearButton"><img src="icons/reset.png"></button>
+        <img src="icons/2d.png" class="toggle_icon">
+        <div class="toggle-container">
+          <input type="checkbox" id="toggleSwitch">
+          <label for="toggleSwitch" class="toggle-label"></label>
+        </div>
+        <img src="icons/3d.png" class="toggle_icon">
+
       </div>
-      <img src="icons/3d.png" class="toggle_icon">      
-    </div>
-    <div>
-      <a href="https://github.com/AngelFebles" target="_blank">Angel Febles</a>
-    </div>
   </div>
+    </div>
+
   <div class="chartdiv"></div>
   <script src="script.js"></script>
 </body>
+
 </html>

@@ -11,12 +11,16 @@ html, body {
 
 .header {
   display: flex;
+  flex-wrap: wrap;
   padding: 1%;
+  margin: 0%;
   background-color: #1f2937;
   color: white;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 .chartdiv {
@@ -29,10 +33,14 @@ html, body {
 .button-arr{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+
 }
 
 #lang-buttons-arr{
-  padding-right: 50px;
+  padding-right: 10px;
 }
 
 button{
@@ -54,11 +62,9 @@ a {
 .toggle-container {
   position: relative;
   display: inline-block;
+  align-self: center;
   width: 60px;
   height: 34px;
-  align-self: center;
-  margin-left: 5px;
-  
 }
 
 .toggle_icon{
@@ -75,6 +81,11 @@ a {
   background-color: #ccc;
   border-radius: 34px;
   cursor: pointer;
+}
+
+.utilities-arr{
+  display: flex;
+  /*padding-left: 50px;*/
 }
 
 .toggle-label:before {
